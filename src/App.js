@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {Header} from "./components/Header";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {Home} from "./components/Home";
+import {ProductList} from "./components/productList/ProductList";
+import {Nutrition} from "./components/nutrition/Nutrition";
+import {FirebaseState} from "./context/firebase/FirebaseState";
+import {Popup} from "./components/nutrition/Popup";
+import {PopupState} from "./context/popup/PopupState";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <FirebaseState>
+            <PopupState>
+                <BrowserRouter>
+                    <div className="App">
+                        <Popup/>
+                        <Header/>
+                        <div className='container pt-4'>
+                            <Switch>
+                                <Route path='/' exact ><Home/></Route>
+                                <Route path='/nutrition' exact ><Nutrition/></Route>
+                                <Route path='/productlist' exact ><ProductList/></Route>
+                            </Switch>
+                        </div>
+                    </div>
+                </BrowserRouter>
+            </PopupState>
+        </FirebaseState>
+    );
 }
 
 export default App;

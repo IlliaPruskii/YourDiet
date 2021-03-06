@@ -1,0 +1,5 @@
+export const SHOW_POPUP = 'SHOW_POPUP'
+export const HIDE_POPUP = 'HIDE_POPUP'
+export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE'
+export const CHANGE_MEAL_NAME = 'CHANGE_MEAL_NAME'
+export const GET_DAY_DATA = 'GET_DAY_DATA'
